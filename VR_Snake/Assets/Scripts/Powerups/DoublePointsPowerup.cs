@@ -14,7 +14,6 @@ public class DoublePointsPowerup : Powerup<DoublePointsPowerupDataContainer>
 {
     [SerializeField]private VRMovement Player;
     [SerializeField]private Text UIText;
-    private readonly float LifeTimeDefault = 10f;
     public override void Initialize(DoublePointsPowerupDataContainer c)
     {
         LifeTimeCurrent = LifeTimeDefault;
@@ -22,6 +21,7 @@ public class DoublePointsPowerup : Powerup<DoublePointsPowerupDataContainer>
         this.UIText = c._text;
         AffectPlayer(false);
         isInitialized = true;
+        LifeTimeDefault = 10f;
     }
     protected override void AffectPlayer(bool reverse)
     {

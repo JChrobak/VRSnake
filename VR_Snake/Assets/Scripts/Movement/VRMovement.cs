@@ -49,7 +49,7 @@ public class VRMovement : MonoBehaviour
                 
             else
             {
-                vForward.y = gravity * 2.0f;
+                vForward.y = gravity * 1.5f;
             }
             //przesuń gracza o wypadkowy wektor * prędkość
             characterController.Move(vForward*mSpeed * Time.deltaTime);
@@ -84,7 +84,7 @@ public class VRMovement : MonoBehaviour
                     points++;
                 trailGenerator.GetComponent<SnakeTrailGenerator>()?.LenghtenTrail();
                 string str = uiCanvas.GetComponent<Text>().text;
-                Regex regex = new Regex("[0-9]+$");
+                Regex regex = new Regex("[0-9]+");
                 str=regex.Replace(str, points.ToString(), 1);
                 uiCanvas.GetComponent<Text>().text = str;
             }
