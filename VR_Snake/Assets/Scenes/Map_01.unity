@@ -2290,12 +2290,12 @@ PrefabInstance:
     - target: {fileID: 1034406397215404450, guid: 83fe95aceb74c204a941bbfc01fb993a,
         type: 3}
       propertyPath: PointsGenerationInvervalSeconds
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1034406397215404450, guid: 83fe95aceb74c204a941bbfc01fb993a,
         type: 3}
       propertyPath: pointsCount
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1034406397215404450, guid: 83fe95aceb74c204a941bbfc01fb993a,
         type: 3}

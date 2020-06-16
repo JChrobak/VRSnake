@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mSpeed: 4
-  gravity: 1
+  gravity: 4
   cameraTransform: {fileID: 6603086553212534702}
   snakeHead: {fileID: 6603086554122543813}
   trailGenerator: {fileID: 6603086552150374783}

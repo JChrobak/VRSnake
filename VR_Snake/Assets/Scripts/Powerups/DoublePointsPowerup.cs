@@ -16,12 +16,13 @@ public class DoublePointsPowerup : Powerup<DoublePointsPowerupDataContainer>
     [SerializeField]private Text UIText;
     public override void Initialize(DoublePointsPowerupDataContainer c)
     {
+        LifeTimeDefault = 10f; 
         LifeTimeCurrent = LifeTimeDefault;
         this.Player = c._player;
         this.UIText = c._text;
         AffectPlayer(false);
         isInitialized = true;
-        LifeTimeDefault = 10f;
+        
     }
     protected override void AffectPlayer(bool reverse)
     {

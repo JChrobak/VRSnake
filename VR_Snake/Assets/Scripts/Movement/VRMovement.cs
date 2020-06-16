@@ -49,10 +49,12 @@ public class VRMovement : MonoBehaviour
                 
             else
             {
-                vForward.y = gravity * 1.5f;
+                vForward.y = gravity * mSpeed * 0.5f;
             }
             //przesuń gracza o wypadkowy wektor * prędkość
-            characterController.Move(vForward*mSpeed * Time.deltaTime);
+            vForward.x *= mSpeed;
+            vForward.z *= mSpeed;
+            characterController.Move(vForward * Time.deltaTime);
         }
 
     }

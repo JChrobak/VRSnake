@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -235,12 +235,12 @@ PrefabInstance:
     - target: {fileID: 1034406397215404450, guid: 83fe95aceb74c204a941bbfc01fb993a,
         type: 3}
       propertyPath: pointsCount
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1034406397215404451, guid: 83fe95aceb74c204a941bbfc01fb993a,
         type: 3}
       propertyPath: m_Name
-      value: Spawner
+      value: PointSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 1034406397215404453, guid: 83fe95aceb74c204a941bbfc01fb993a,
         type: 3}
@@ -3172,12 +3172,12 @@ PrefabInstance:
     - target: {fileID: 1034406397215404450, guid: 83fe95aceb74c204a941bbfc01fb993a,
         type: 3}
       propertyPath: pointsCount
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1034406397215404450, guid: 83fe95aceb74c204a941bbfc01fb993a,
         type: 3}
       propertyPath: PointsGenerationInvervalSeconds
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1034406397215404450, guid: 83fe95aceb74c204a941bbfc01fb993a,
         type: 3}
