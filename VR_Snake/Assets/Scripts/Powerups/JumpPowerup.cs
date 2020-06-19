@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//jump powerup - wyrzuca gracza w powietrze
 public class JumpPowerup : Powerup<VRMovement>
 {
     VRMovement Player;

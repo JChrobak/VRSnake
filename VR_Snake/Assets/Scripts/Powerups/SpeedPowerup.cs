@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//speed powerup - przyspiesza gracza
 public class SpeedPowerup : Powerup<VRMovement>
 {
     VRMovement Player;

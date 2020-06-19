@@ -15,11 +15,16 @@ using UnityEngine;
 //dodałem na wszelki wyapdek jakby coś się stalo z plikiem TrailGenerator.cs
 //enum D { UL = 0, UR = 1, BL = 2, BR = 3 }
 //enum GeneratorState { Stopped = 0, Trail = 1, Gap = 2, Replacing = 3 }
+
+//klasa generująca ślad gracza na zasadach podobnych jak w grze Snake
+//ślad przesuwa się za graczem a jego maksymalna długość jest wydłużana wraz ze zbieranymi punktami
+//generowany ślad jest obiektem typu mesh
+//korzystamy z korutyn dla zwiększenia możliwości zarządzania czasem podczas uruchomienia generatora
 public class SnakeTrailGenerator : MonoBehaviour
 {
-    [SerializeField] private float currDistance;
-    private GeneratorState currentState;
-    private Mesh mesh;
+    private float currDistance;
+    private GeneratorState currentState; //maszyna stanów mówiąca w jakim stanie znajduje sieaktualnie generator
+    private Mesh mesh; 
     private MeshCollider meshCollider;
     private Transform[] headTransforms; //aktualne współrzędne markerów
     private Vector3[] lastPoints; //poprzednie współrzędne markerów
@@ -39,6 +44,7 @@ public class SnakeTrailGenerator : MonoBehaviour
     //przed funkcją Start
     private void Awake()
     {
+        //inicjalizacja zmiennych
         currentState = GeneratorState.Trail;
         isGenerating = true;
         mesh = GetComponent<MeshFilter>().mesh;
@@ -160,8 +166,6 @@ public class SnakeTrailGenerator : MonoBehaviour
         mesh.Optimize();
         mesh.RecalculateNormals();
         meshCollider.sharedMesh = mesh;
-        //Debug.Break();
-
     }
 
     //funkcja przypisująca aktualne wartości do tablicy lastPoints
@@ -247,7 +251,7 @@ public class SnakeTrailGenerator : MonoBehaviour
         triangles.RemoveRange(triangles.Count - 24, 24);
         currTriangleNo -= 24;
     }
-    //korutyna generująca ogon gracza
+    //główna korutyna generująca ogon gracza
     IEnumerator TrailGenerationDistance()
     {
         //generowanie pierwszego kawałka przedniego

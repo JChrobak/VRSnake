@@ -12,8 +12,14 @@ using UnityEngine;
 //aby odwołać się trzeba zrzutować enum na inta 
 //np. tablica[(int)d.UL]
 enum D{ UL=0,UR=1,BL=2,BR=3}
+
+//enum utworzony żeby zwiększyć czytelność kodu i na potrzeby maszyny stanów
 enum GeneratorState { Stopped=0,Trail=1, Gap=2, Replacing=3}
 
+//klasa generująca ślad gracza na zasadach podobnych jak w grze Achtung die kurve
+//ślad jest generowany ciągle i nie przesuwa się za graczem natomiast generowane są przerwy co określoną długość śladu
+//generowany ślad jest obiektem typu mesh
+//korzystamy z korutyn dla zwiększenia możliwości zarządzania czasem podczas uruchomienia generatora
 public class TrailGenerator : MonoBehaviour
 {
     private float currDistance;
@@ -38,6 +44,7 @@ public class TrailGenerator : MonoBehaviour
     //przed funkcją Start
     private void Awake()
     {
+        //inicjalizacja zmiennych
         currentState = GeneratorState.Trail;
         isGenerating = true;
         mesh = GetComponent<MeshFilter>().mesh;
@@ -159,7 +166,6 @@ public class TrailGenerator : MonoBehaviour
         mesh.Optimize();
         mesh.RecalculateNormals();
         meshCollider.sharedMesh = mesh;
-        //Debug.Break();
       
     }
 
@@ -172,9 +178,6 @@ public class TrailGenerator : MonoBehaviour
         lastPoints[(int)D.BR] = headTransforms[(int)D.BR].position;
     }
 
-    // Update is called once per frame
-    void Update()
-    { }
     
     //funkcja tworząca przednią ściankę ogona
     private void GenerateFirstPlane()
@@ -211,8 +214,8 @@ public class TrailGenerator : MonoBehaviour
         triangles.Add(currTriangleNo += 1);
         UpdateMesh();
     }
-    //korutyna generująca ogon gracza
 
+    //główna korutyna generująca ogon gracza
     IEnumerator TrailGenerationDistance()
     {
         //generowanie pierwszego przedniego kawałka

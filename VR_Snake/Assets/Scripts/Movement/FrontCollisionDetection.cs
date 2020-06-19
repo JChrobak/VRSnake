@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FrontCollisionDetection : MonoBehaviour
 {
+    //detekcja kolizji z przedniego collidera
     private void OnCollisionEnter(Collision collision)
     {
         //sprawdź czy wywołuje to faktyczna głowa czy klon tworzony po śmierci (klon to sama kostka i jej obiekty dzieci więc jeżeli rodzic tego rodzica jest null to znaczy że jesteśmy w klonie)

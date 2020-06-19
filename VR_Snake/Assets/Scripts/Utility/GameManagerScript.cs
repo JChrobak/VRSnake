@@ -5,13 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    //powrót do menu przy dotknięciu ekranu
     void Update()
     {
         if (Input.touchCount > 0)
